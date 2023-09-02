@@ -1,9 +1,11 @@
 package com.pmg.swisstournament.controllers;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.pmg.swisstournament.forms.CreateTeamForm;
 import com.pmg.swisstournament.models.Team;
 import com.pmg.swisstournament.services.TeamsService;
 
@@ -20,6 +22,11 @@ public class TeamsController {
   @GetMapping("")
   public Iterable<Team> getAllTeams() {
     return teamsService.getAllTeams();
+  }
+
+  @PostMapping("")
+  public Team createTeam(CreateTeamForm form) {
+    return teamsService.createTeam(form);
   }
 
 }
