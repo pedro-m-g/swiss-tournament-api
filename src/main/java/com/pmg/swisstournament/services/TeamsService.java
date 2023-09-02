@@ -1,17 +1,21 @@
 package com.pmg.swisstournament.services;
 
-import java.util.Collection;
-import java.util.Collections;
-
 import org.springframework.stereotype.Service;
 
 import com.pmg.swisstournament.models.Team;
+import com.pmg.swisstournament.repositories.TeamsRepository;
 
 @Service
 public class TeamsService {
 
-  public Collection<Team> getAllTeams() {
-    return Collections.emptyList();
+  private final TeamsRepository teamsRepository;
+
+  public TeamsService(TeamsRepository teamsRepository) {
+    this.teamsRepository = teamsRepository;
+  }
+
+  public Iterable<Team> getAllTeams() {
+    return teamsRepository.findAll();
   }
 
 }

@@ -1,7 +1,5 @@
 package com.pmg.swisstournament.controllers;
 
-import java.util.Collection;
-
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -20,7 +18,7 @@ public class TeamsController {
   }
 
   @GetMapping("")
-  public Collection<Team> getAllTeams() {
+  public Iterable<Team> getAllTeams() {
     return teamsService.getAllTeams();
   }
 
